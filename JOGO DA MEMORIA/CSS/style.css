@@ -1,0 +1,117 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+html {
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+h1,
+h2,
+button {
+    padding: 0px;
+    margin: 0px;
+}
+
+button {
+    background-color: black;
+    color: aliceblue;
+    font-size: 20px;
+    padding: 4px;
+}
+
+table {
+    height: 80%;
+    width: 50%;
+}
+
+
+.celulas {
+    width: 25%;
+    height: 25%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 60px;
+    background: #bdc3c7;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2c3e50, #bdc3c7);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.padrao
+{
+     background: #bdc3c7;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2c3e50, #bdc3c7);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    pointer-events: auto ;
+}
+
+.vermelho
+{
+    background: red;
+    pointer-events: none;
+    color: red
+}
+
+.amarelo
+{
+    background: yellow;
+    pointer-events: none;
+    color: yellow
+}
+
+.verde
+{
+    background: green;
+    pointer-events: none;
+    color: green
+}
+
+.preto
+{
+    background: black;
+    pointer-events: none;
+    color: black
+}
+
+.roxo
+{
+    background: purple;
+    pointer-events: none;
+    color: purple
+}
+
+.marrom
+{
+    background: brown;
+    pointer-events: none;
+    color: brown
+}
+
+.laranja
+{
+    background: orange;
+    pointer-events: none;
+    color: orange
+}
+
+.azul
+{
+    background: blue;
+    pointer-events: none;
+    color: blue
+}

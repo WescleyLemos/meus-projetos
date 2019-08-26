@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="CSS/style.css">
+    <title>JOGO DA MEMÓRIA</title>
+</head>
+
+<body>
+
+    <h1 align="center">-JOGO DA MEMÓRIA-  </h1>
+    <div align="center"><button align="center" onclick="jogar()">JOGAR</button></div>
+    <h2 align="center" id="pontos">por Wescley Lemos</h2>
+
+
+    <!-- ----------TABELA QUE CONTÉM AS CORES------------- -->
+    <table align="center">
+        <tr>
+            <td class="celulas preto" id="cel1">?</td>
+            <td class="celulas preto" id="cel2" >?</td>
+            <td class="celulas preto" id="cel3">?</td>
+            <td class="celulas preto" id="cel4">?</td>
+        </tr>
+        <tr>
+            <td class="celulas preto" id="cel5">?</td>
+            <td class="celulas preto" id="cel6">?</td>
+            <td class="celulas preto" id="cel7">?</td>
+            <td class="celulas preto" id="cel8">?</td>
+        </tr>
+        <tr>
+            <td class="celulas preto" id="cel9">?</td>
+            <td class="celulas preto" id="cel10">?</td>
+            <td class="celulas preto" id="cel11">?</td>
+            <td class="celulas preto" id="cel12">?</td>
+        </tr>
+        <tr>
+            <td class="celulas preto" id="cel13">?</td>
+            <td class="celulas preto" id="cel14">?</td>
+            <td class="celulas preto" id="cel15">?</td>
+            <td class="celulas preto" id="cel16">?</td>
+        </tr>
+    </table>
+<!-- ************************************************************ -->
+
+
+<!-- **********************SCRIPT********************************* -->
+    <script>
+    var cont = 0;
+    var pontos = 10;
+    var auxPontos = 0;
+    var ganhou = 0;
+
+
+    // FUNÇÃO BOTÃO JOGAR
+    function jogar() 
+    {
+
+            let cel = 'cel'
+            let tds = document.getElementsByTagName('td')
+            pontos = 10
+            document.getElementById('pontos').innerText = `Pontos:${pontos}`;
+            var cor = [
+            'vermelho','vermelho2', 
+            'amarelo', 'amarelo2',
+            'verde', 'verde2',
+            'preto', 'preto2',
+            'roxo', 'roxo2',
+            'marrom', 'marrom2',
+            'laranja', 'laranja2',
+            'azul', 'azul2'
+            ]
+
+            // FUNÇÃO QUE REMOVE COR DO VETOR DE STRINGS
+            function funIndex(termo)
+            {
+            var index = cor.indexOf(termo);   
+            if (index !== -1) 
+                {
+                cor.splice(index, 1);
+                }
+            }
+
+
+            // LAÇO QUE PREENCHE TABELA COM AS CORES ALEATÓRIAMENTE
+            for (let i = 0; i < tds.length; i++) 
+            {
+                
+                tds[i].setAttribute("class", "celulas")
+                cel = 'cel' + (i + 1)//PEGA POSIÇÃO DA CELULA PARA MODIFICAR
+
+                //RAMDOMICO DAS POSIÇÕES DAS CORES
+                let corAux = cor[Math.floor(Math.random() * cor.length)];
+
+
+                    // ---------CONDIÇÕES PARA REMOÇÃO DE CORES REPETIDAS-----------
+                    if (corAux == 'vermelho')
+                    {
+                        funIndex('vermelho')
+                        corAux='vermelho'
+                    }
+                    else if (corAux == 'amarelo')
+                    {
+                       funIndex('amarelo')
+                        corAux='amarelo'
+                    }
+                    else  if (corAux == 'verde')
+                    {
+                        funIndex('verde')
+                        corAux='verde'
+                    }
+                    else  if (corAux == 'preto')
+                    {
+                        funIndex('preto')
+                        corAux='preto'
+                    }
+                    else  if (corAux == 'roxo')
+                    {
+                       funIndex('roxo')
+                        corAux='roxo'
+                    }
+                    else  if (corAux == 'marrom')
+                    {
+                       funIndex('marrom')
+                        corAux='marrom'
+                    }
+                    else  if (corAux == 'laranja')
+                    {
+                       funIndex('laranja')
+                        corAux='laranja'
+                    }
+                    else  if (corAux == 'azul')
+                    {
+                       funIndex('azul')
+                        corAux='azul'
+                    }else if (corAux == 'vermelho2')
+                    {
+                        funIndex('vermelho2')
+                        corAux='vermelho'
+                    }
+                    else if (corAux == 'amarelo2')
+                    {
+                       funIndex('amarelo2')
+                        corAux='amarelo'
+                    }
+                    else  if (corAux == 'verde2')
+                    {
+                        funIndex('verde2')
+                        corAux='verde'
+                    }
+                    else  if (corAux == 'preto2')
+                    {
+                        funIndex('preto2')
+                        corAux='preto'
+                    }
+                    else  if (corAux == 'roxo2')
+                    {
+                       funIndex('roxo2')
+                        corAux='roxo'
+                    }
+                    else  if (corAux == 'marrom2')
+                    {
+                       funIndex('marrom2')
+                        corAux='marrom'
+                    }
+                    else  if (corAux == 'laranja2')
+                    {
+                       funIndex('laranja2')
+                        corAux='laranja'
+                    }
+                    else  if (corAux == 'azul2')
+                    {
+                       funIndex('azul2')
+                        corAux='azul'
+                    }
+                    // ----------------------FIM CONDIÇÕES-------------------
+
+                    // ADICIONA A COR NA POSIÇÃO DA CELULA PELO ID
+                    tds[i].setAttribute("onclick", `mudaCor('${cel}','${corAux}')`)
+            
+            }
+}
+        
+        // FUNÇÃO COM COMPARAÇOES DE CORES IGUAIS/DIFERENTES
+        function mudaCor(id, classe) 
+        {
+           
+            // PRIMEIRO CLIQUE
+            if (cont == 0) 
+            {
+                document.getElementById(id).classList.add(classe)
+                idAux = id
+                cor = classe
+                cont = 1
+            } 
+            // SEGUNDO CLIQUE SE SÃO CORES IGUAIS
+            else if (cont == 1 && cor == classe) 
+            {
+                document.getElementById(id).classList.add(classe);
+                cont = 0
+                pontos += 10
+                ganhou +=1;
+                document.getElementById('pontos').innerText = ` Pontos: ${pontos}`;
+            } 
+            // SEGUNDO CLIQUE E CORES DIFERENTES
+            else 
+            {
+                document.getElementById(id).classList.add(classe)
+                cont = 0
+                if (pontos>0)
+                {
+                pontos -= 1
+
+                }
+
+              document.getElementById('pontos').innerText = ` Pontos: ${pontos}`;
+
+                setTimeout(function () 
+                {
+                    document.getElementById(id).classList.remove(classe);
+                    document.getElementById(idAux).classList.remove(cor);       
+                }, 300);
+                
+            }
+
+            // EXIBE PARABENS SE TIVER GANHADO O JOGO
+            if(ganhou==8)
+            {
+             ganhou=0
+             alert(`Parabéns você ganhou! sua pontuação foi de: ${pontos} pontos`)
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
