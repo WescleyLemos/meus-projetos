@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lista Dinâmica</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <section class="linha">
+        <!-- ----------------COLUNA 1 --------------- -->
+        <section class="coluna coluna1">
+            <section name="lista">
+                <input id="nome" type="text" placeholder="Digite o nome...">
+                <input id="telefone" type="text" placeholder="Digite o telefone...">
+                <input id="endereco" type="text" placeholder="Digite o endereço...">
+                <button id="cadastrar" onclick="cadastrar()">Cadastrar</button>
+            </section>
+        </section>
+
+
+        <!-- ----------------COLUNA 2 --------------- -->
+        <section class='coluna coluna2'>
+            <ul class="lista">
+            </ul>
+        </section>
+
+    </section>
+
+
+    <!-- ***************************SCRIPT********************************** -->
+    <script>
+        var id = 0
+
+        // FUNÇÃO EXCLUIR
+        function excluir(id) 
+        {
+            const linhaRecuperada = document.getElementById(`${id}`)
+        
+            linhaRecuperada.remove()
+        }
+
+        // FUNÇÃO EDITAR
+        function editar(id)
+        {
+            const paragrafo1 = document.getElementById(`paragrafoa${id}`).innerHTML
+            const paragrafo2 = document.getElementById(`paragrafob${id}`).innerHTML
+            const paragrafo3 = document.getElementById(`paragrafoc${id}`).innerHTML
+            let botaoSalvar = document.getElementById('cadastrar')
+
+            botaoSalvar.innerHTML = 'Salvar'
+            botaoSalvar.setAttribute('onclick', `salvar(${id})`)
+            
+            let nome = document.getElementById('nome')
+            let endereco = document.getElementById('telefone')
+            let telefone = document.getElementById('endereco')
+
+             nome.value = paragrafo1.split('Nome: ')[1]
+            endereco.value = paragrafo2.split('Telefone: ')[1]
+            telefone.value = paragrafo3.split('Endereço: ')[1]
+
+            botaoSalvar.classList.add('salvar')
+        }
+
+        //FUNÇÃO SALVAR ATUALIZAÇÃO
+        function salvar(id)
+        {   
+            let nome = document.getElementById('nome')
+            let telefone = document.getElementById('telefone')
+            let endereco = document.getElementById('endereco')
+
+            let paragrafo1 = document.getElementById(`paragrafoa${id}`)
+            let paragrafo2 = document.getElementById(`paragrafob${id}`)
+            let paragrafo3 = document.getElementById(`paragrafoc${id}`)
+
+            paragrafo1.innerHTML = `Nome: ${nome.value}`
+            paragrafo2.innerHTML = `Telefone: ${telefone.value}`
+            paragrafo3.innerHTML = `Endereço: ${endereco.value}`
+      
+            let botaoCadastrar = document.getElementById('cadastrar')
+            botaoCadastrar.innerHTML = 'Cadastrar'
+            botaoCadastrar.setAttribute('onclick', `cadastrar()`)
+            botaoCadastrar.classList.remove('salvar')
+
+            nome.value = ''
+            endereco.value = ''
+            telefone.value = ''
+        }
+
+        //FUNÇÃO CADASTRAR
+        function cadastrar() 
+        {            
+            const body = document.querySelector('body')
+            const lista = document.querySelector('ul')
+            const inputs = document.querySelectorAll('input')
+            const linha = document.createElement('li')
+            const paragrafo1 = document.createElement('p')
+            const paragrafo2 = document.createElement('p')
+            const paragrafo3 = document.createElement('p')
+            const botaoEditar = document.createElement('button')
+            const botaoExcluir = document.createElement('button')
+
+            let nome = inputs[0].value
+            let telefone = inputs[1].value
+            let endereco = inputs[2].value
+
+            paragrafo1.innerHTML = `Nome: ${nome}`
+            paragrafo1.setAttribute('id', `paragrafoa${id}`)
+
+            paragrafo2.innerHTML = `Telefone: ${telefone}`
+            paragrafo2.setAttribute('id', `paragrafob${id}`)
+
+            paragrafo3.innerHTML = `Endereço: ${endereco}`
+            paragrafo3.setAttribute('id', `paragrafoc${id}`)
+
+            inputs[0].value = ''
+            inputs[1].value = ''
+            inputs[2].value = ''
+
+            botaoExcluir.setAttribute('onclick', `excluir(${id})`)
+            botaoExcluir.innerHTML = 'Excluir'
+
+            botaoEditar.setAttribute('onclick', `editar(${id})`)
+            botaoEditar.innerHTML = 'Editar'
+
+            linha.setAttribute('id', `${id}`)
+
+            linha.classList.add('linha')
+            linha.appendChild(paragrafo1)
+            linha.appendChild(paragrafo2)
+            linha.appendChild(paragrafo3)
+            linha.appendChild(botaoEditar)
+            linha.appendChild(botaoExcluir)
+
+            lista.appendChild(linha)  
+           
+            id++
+        }
+
+    </script>
+
+</body>
+
+</html>

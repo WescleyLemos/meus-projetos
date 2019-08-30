@@ -1,0 +1,125 @@
+*
+{
+    position: relative;
+    box-sizing: border-box
+  
+}
+/* --------------------------ELEMENTOS HTML---------------------- */
+html 
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px
+}
+
+body 
+{
+    margin: 0px;
+    background-color: #0D262D;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+}
+
+section 
+{
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+}
+
+form
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+}
+
+ul
+{
+    border: solid 1px white; 
+}
+
+p
+{
+    margin-top: 0;    
+}
+/* --------------------CLASSES E IDS---------------------- */
+
+.coluna
+{
+    float: left; 
+    margin: 0px;
+    width: 100%;
+    height: 100%;   
+}
+
+.coluna1
+{
+    width: 50%;
+    height: 100%;
+    margin: 0px;
+}
+
+.coluna2
+{
+    width: 50%;
+    margin: 0px;
+    background: #fff  
+}
+
+.lista
+{  
+    margin: 0px;
+    background-color: #0D262D;
+    text-align: center;
+    list-style-type: decimal;  
+}
+
+.linha
+{
+    margin: 0px;
+    padding-bottom: 6px;
+    border-bottom: solid 1px white;   
+}
+
+#nome
+{
+    width: 80%;
+    height: 30px;
+    margin-left: 10%;
+    margin-top: 5%
+    
+}
+#telefone
+{
+    width: 80%;
+    height: 30px;
+    margin-left: 10%;
+    margin-top: 5%
+}
+#endereco
+{
+    width: 80%;
+    height: 30px;
+    margin-left: 10%;
+    margin-top: 5%
+}
+
+#cadastrar
+{
+    width: 40%;
+    height: 40px;
+    margin-left: 30%;
+    margin-top: 5%;
+    font-size: 20px
+}
+.salvar
+{
+    width: 40%;
+    height: 40px;
+    margin-left: 30%;
+    margin-top: 5%;
+    color:white ;
+    background-color: darkgreen;
+}
