@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            text-align: center;
+
+        }
+
+        body {
+            box-sizing: border-box;
+            display: grid;
+            min-height: 100vh;
+            grid-template-columns: 100%;
+            grid-template-rows: 100px 50px 1fr 50px;
+            grid-template-areas:
+                'cabecalho'
+                'nav'
+                'main'
+                'rodape';
+        }
+
+        header {
+            grid-area: cabecalho;
+            border: solid 1px green;
+        }
+
+        nav {
+            grid-area: nav;
+            border: solid 1px blue;
+        }
+
+        main {
+            grid-area: main;
+            border: solid 1px goldenrod;
+            display: grid;
+            grid-template-columns: 35% 40% 25%;
+            grid-template-rows: 50% 50%;
+            grid-template-areas:
+                'grande t1 p1'
+                'grande t2 p2';
+            padding: 10px;
+        }
+
+
+        .content-grande {
+
+            background-color: purple;
+            grid-row: 1 / 4;
+
+        }
+
+
+
+
+        .t1 {
+            grid-area: t1;
+            background-color: orangered;
+            margin: 5px;
+
+        }
+
+        .t2 {
+            grid-area: t2;
+            background-color: orangered;
+            margin: 5px;
+        }
+
+        .p1 {
+            grid-area: p1;
+            background-color: yellow;
+            margin: 5px;
+        }
+
+        .p2 {
+            grid-area: p2;
+            background-color: yellow;
+            margin: 5px;
+        }
+
+
+        footer {
+            grid-area: rodape;
+            border: solid 1px lawngreen;
+        }
+
+        @media(max-width:700px) {
+            main {
+                grid-template-columns: 1fr;
+            
+                grid-template-areas:
+                    'content-grande'
+                    't1'
+                    't2'
+                    'p1'
+                    'p2'
+            }
+            .content-grande
+            {
+                 grid-row: 1 / 2;
+            }
+
+            header {
+                display: none
+            }
+        }
+    </style>
+</head>
+
+
+
+<body>
+
+    <header>HEADER</header>
+    <nav>NAVEGATION AREA</nav>
+    <main class="conteudo">
+        <section class="content-grande">CONTENT<br>AREA</section>
+
+        <section class="image-text t1">IMAGE <br>+<br>TEXT </section>
+        <section class="image-text t2">IMAGE <br>+<br>TEXT</section>
+        <section class="content-pequeno p1">CONTENT<br>AREA</section>
+        <section class="content-pequeno p2">CONTENT<br>AREA</section>
+
+    </main>
+    <footer>FOOTER</footer>
+
+</body>
+
+
+</html>
