@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-rows: 5% 45% 10% 40%;
+            grid-template-areas:
+                'menu-'
+                'div1'
+                'div2'
+                'div3';
+            grid-row-gap: 10px;
+        }
+
+        nav {
+            grid-area: menu-;
+            background-color: #D7D7D7FF;
+            max-width: 450px;
+            max-height: 40px;
+            padding: 10px 2px 10px 2px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: black;
+        }
+
+        /* ******************************************* */
+        .div1 {
+            grid-area: div1;
+            display: grid;
+            grid-template-columns: 50% 25% 25%;
+            grid-template-rows: 50% 50%;
+            grid-template-areas:
+                'imagemGrande textao textao'
+                'imagemGrande textoMedio video'
+
+        }
+
+        #imagemGrande {
+            border: solid 1px;
+            max-height: 500px;
+            grid-area: imagemGrande;
+            grid-row-start: 1;
+            grid-row-end: 3;
+            margin: 2% 10%
+        }
+
+        #textao {
+            border: solid 1px;
+            margin: 10px;
+            max-height: 300px;
+            padding: 5px;
+            grid-area: textao;
+            grid-column-start: 2;
+            grid-column-end: 4;
+            overflow: hidden;
+        }
+
+        #textoMedio {
+            border: solid 1px;
+            padding: 5px;
+            max-height: 200px;
+            margin: 10px;
+            grid-area: textoMedio;
+            overflow: hidden;
+        }
+
+        #video {
+            border: solid 1px;
+            max-height: 200px;
+            margin: 10px;
+            grid-area: video;
+        }
+
+        /* ******************************************* */
+
+
+        /* ******************************************* */
+        .div2 {
+            grid-area: div2;
+            display: flex;
+
+        }
+
+        #botao1 {
+
+
+            flex: 1
+        }
+
+        #botao2 {
+
+            flex: 1
+        }
+
+        #botao3 {
+
+            flex: 2
+        }
+
+        .botoes {
+            height: 50px;
+            min-width: 300px;
+            margin-left: 100px;
+        }
+
+        /* ******************************************* */
+
+
+
+        /* ******************************************* */
+        .div3 {
+            grid-area: div3;
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-template-rows: 50% 50%;
+            grid-template-areas:
+                'login  imgs'
+                'textinho  imgs';
+
+        }
+
+        #login {
+            border: solid 1px;
+            width: 400px;
+            grid-area: login;
+            text-align: center;
+            max-width: 350px;
+            max-height: 200px
+        }
+
+        #textinho {
+            border: solid 1px;
+            max-width: 400px;
+            max-height: 40px;
+            grid-area: textinho;
+        }
+
+        #imgs {
+            display: flex;
+            grid-area: imgs;
+            grid-row-end: span 3;
+            justify-content: center;
+        }
+
+        .img {
+
+            margin: 2%;
+        }
+
+
+
+        /* ******************************************* */
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="menu-">
+        <!--LISTA DO MENU -->
+        <a href="#">Home ►</a>
+        <a href="#">About Us ►</a>
+        <a href="#">Products ►</a>
+        <a href="#">Services ►</a>
+        <a href="#">Reviews ►</a>
+        <a href="#">Blog ►</a>
+    </nav>
+
+
+    <div class="div1">
+        <article id="imagemGrande">
+            <img src="img/imagem.png" width="100%" height="100%">
+        </article>
+        <article id="textao">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fermentum vehicula ornare. Sed a rutrum
+                turpis. In felis nunc, porttitor eu sapien vel, mollis pretium quam. Phasellus vulputate porttitor odio,
+                eu suscipit ante feugiat in. Pellentesque habitant morbi tristique senectus et netus et malesuada fames
+                ac turpis egestas. Vestibulum tempus sed magna id eleifend. Donec quis nisl non lorem faucibus
+                tristique. Proin tincidunt euismod lorem ac tincidunt. Fusce pretium commodo sem sed efficitur.
+                Suspendisse gravida ullamcorper justo at ullamcorper. Vivamus ullamcorper laoreet ligula in ornare.
+                Integer sit amet sodales est. Mauris eget condimentum massa. Nullam nec lacus urna. Ut non suscipit
+                metus.</p>
+            <p>faucibus tristique. Proin tincidunt euismod lorem ac tincidunt. Fusce pretium commodo sem sed efficitur.
+                Suspendisse gravida ullamcorper justo at ullamcorper. Vivamus ullamcorper laoreet ligula in ornare.
+                Integer sit amet sodales est. Mauris eget condimentum massa. Nullam nec lacus urna. Ut non suscipit
+                metus.</p>
+        </article>
+
+        <article id="textoMedio">
+            <p>orem ipsum dolor sit amet, consectetur adipiscing elit. Donec fermentum vehicula ornare. Sed a rutrum
+                turpis. In felis nunc, porttitor eu sapien vel, mollis pretium quam. Phasellus vulputate porttitor odio,
+                eu suscipit ante feugiat in. Pellentesque habitant morbi tristique senectus et netus et malesuada fames
+                ac turpis egestas.
+            </p>
+        </article>
+
+
+        <article id="video">
+            <video width="100%" height="100%" controls>
+                <source src="movie.mp4" type="video/mp4">
+                <source src="movie.ogg" type="video/ogg">
+            </video>
+        </article>
+    </div>
+
+    <div class="div2">
+        <div id="botao1">
+            <button class="botoes">BOTAO 1</button>
+        </div>
+
+        <div id="botao2">
+            <button class="botoes">BOTAO 2</button>
+        </div>
+
+        <div id="botao3">
+            <button class="botoes">BOTAO 3</button>
+        </div>
+    </div>
+
+
+
+    <div class="div3">
+
+        <form id="login" action="">
+            <br>SIGN IN <br><br>
+            Login:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="fname"><br>
+            Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="lname"><br>
+            Password:&nbsp;<input type="text" name="lname"><br>
+            Confirm: &nbsp;&nbsp;<input type="text" name="lname"><br>
+            <button>Sign up</button>
+        </form>
+
+        <p id="textinho">rutrum turpis. In felis nunc, porttitor eu sapien vel, mollis </p>
+
+        <div id="imgs">
+            <section class="img">
+                <img src="img/imagem.png" width="200" height="300">
+            </section>
+
+            <section class="img">
+                <img src="img/imagem.png" width="200" height="300">
+            </section>
+
+            <section class="img">
+                <img src="img/imagem.png" width="200" height="300">
+            </section>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
